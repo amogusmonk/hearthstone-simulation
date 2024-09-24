@@ -2,6 +2,8 @@ from effects import SpellEffects, MinionEffects
 from board import Deck, Hand, Battlefield
 from setup import Game
 
+#handles player attributes and player-related actions
+
 class Player:
     def __init__(self, name, cards):
         self.name = name

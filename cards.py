@@ -1,5 +1,7 @@
 from player import PlayerTurn
 
+#available cards and their attributes
+
 class Card:
     def __init__(self, name, mana_cost, description):
         self.name = name

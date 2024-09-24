@@ -1,6 +1,8 @@
 import random
 from setup import Game
 
+#classes for minion and spell effects
+
 class MinionEffects: #class for each minion's effects (not including basic taunt, charge, stealth)
     def activate_1(player): #stormwind champion
         for m in player.battlefield.minions:
