@@ -45,9 +45,11 @@ class Battlefield:
     def minion_death(self, player, minion): #check if minion is dead; remove if dead
         if minion.health <= 0:
             print(f"{player.name}'s {minion.name} has fallen. The card will be removed from the battlefield." )
+            #deactivate stormwind champion effect
             if minion.name == "Stormwind Champion":
-                MinionEffects.deactivate_1(player) 
-            self.remove_minion(minion)
+                MinionEffects.deactivate_1(player)
+            if minion in self.minions:
+                self.remove_minion(minion)
     def update_minion(self): #make minions on the battlefield wake up, restore their attack count
         for minion in self.minions:
             if not minion.awake:

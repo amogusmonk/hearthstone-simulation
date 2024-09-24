@@ -30,7 +30,7 @@ class Minion(Card):
         print(f"Attacked!!! Your {self.name} attacked {other_minion.name}. Your {self.name} now has {self.health} health left, and your opponent's {other_minion.name} has {other_minion.health} health left.\n")
     def play(self, player, opponent):
         player.battlefield.add_minion(self)
-        PlayerTurn.minion_effect(self, player, opponent)
+        PlayerTurn.use_minion_effect(self, player, opponent)
     def __str__(self):
         return f"{self.name} (Minion)\n(Mana Cost: {self.mana_cost}) (Attack: {self.attack}) (Health: {self.health}) (Awake: {self.awake}) - Description: {self.description}"
 

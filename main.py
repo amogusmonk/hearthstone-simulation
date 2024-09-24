@@ -39,6 +39,7 @@ def main():
         Minion("Spymistress", 1, 3, 1, "Stealth", True)
         ]
     
+    #setting up game
     player_1_name = input("First player name: ")
     player_2_name = input("Second player name: ")
     print("\n Drawing cards...\n")

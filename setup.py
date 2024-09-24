@@ -1,5 +1,5 @@
 
-class Game: #misc. game managing thingies
+class Game: #misc. game managing functions
     def draw_card(deck, hand): #draws card from deck; adds it to hand
         card = deck.draw_card()
         if card:

@@ -4,17 +4,18 @@ from setup import Game
 class MinionEffects: #class for each minion's effects (not including basic taunt, charge, stealth)
     def activate_1(player): #stormwind champion
         for m in player.battlefield.minions:
-            m.attack += 1
-            m.health += 1
-            print(f"{m.name} {m.health}")
+            if m.name != "Stormwind Champion":
+                m.attack += 1
+                m.health += 1
         print("Stormwind Champion's effect has been activated.")
     def deactivate_1(player): #deactivate stormwind champion
         for m in player.battlefield.minions:
-            m.attack -= 1
-            m.health -= 1
-            if m.health <= 0:
-                player.battlefield.remove_minion(m)
-                print(f"Since Stormwind Champion's effect has been deactivated, {m.name}'s has fallen.")
+            if m.name != "Stormwind Champion":
+                m.attack -= 1
+                m.health -= 1
+                if m.health <= 0:
+                    player.battlefield.remove_minion(m)
+                    print(f"Since Stormwind Champion's effect has been deactivated, {player.name}'s {m.name} has fallen.")
 
 class SpellEffects: #class for each spell's effects
     def fireball(player, opponent):

@@ -64,7 +64,7 @@ class PlayerTurn: #all the actions a player can do: play card, command minion, e
             attacked_minion_index = PlayerTurn.choose_attacked_card(opponent)
 
             player.battlefield.minions[attacking_minion_index].attacked() #-1 attack count
-            player.battlefield.minions[attacking_minion_index].update_stealth(False) #toggle stealth
+            player.battlefield.minions[attacking_minion_index].update_stealth(False) #toggle stealth regardless of minion
             #carry out attacks
             if attacked_minion_index == -1:
                 PlayerTurn.attack_hero(player, opponent, attacking_minion_index)
@@ -101,16 +101,17 @@ class PlayerTurn: #all the actions a player can do: play card, command minion, e
         elif spell_card.name == "Deadly Shot":
             SpellEffects.deadly_shot(opponent)
 
-    def minion_effect(minion, player, opponent):
+    def use_minion_effect(minion, player, opponent):
         if minion.name == "Stormwind Champion":
             MinionEffects.activate_1(player)
         else:
             pass #for future effects
-        
+    
+    #player input functions
     def choose_attack_card(player):
         while True:
             attacking_minion_index = int(input("Type the index of the minion you would like to attack with: "))
-            if player.battefield.minions[attacking_minion_index].attack_count <= 0:
+            if player.battlefield.minions[attacking_minion_index].attack_count <= 0:
                 print("Sorry, the minion you chose already attacked.")
             elif player.battlefield.minions[attacking_minion_index].awake == False:
                 print("The minion you chose is sleeping. Try again.")
