@@ -59,11 +59,17 @@ class SpellEffects: #class for each spell's effects
         for m in opponent.battlefield.minions[:]:
             opponent.battlefield.remove_minion(m)
         print("All minions have been destroyed.")
+
         player.hand.display_hand(player)
-        for _ in range(0, 2):
-            choice = int(input("Type the index of the card you would like to discard: "))
-            print(f"{player.hand.cards[choice].name} has been discarded.")
-            player.hand.cards.pop(choice)
+        choice = int(input("Type the index of the first card you would like to discard: "))
+        print(f"{player.hand.cards[choice].name} has been discarded.")
+        player.hand.cards.pop(choice)
+
+        player.hand.display_hand(player)
+        choice2 = int(input("Type the index of the second card you would like to discard: "))
+        print(f"{player.hand.cards[choice2].name} has been discarded.")
+        player.hand.cards.pop(choice2)
+        
         print("The cataclysm has destroyed all minions and two cards.")
     def deadly_shot(opponent):
         dead_minion = random.choice(opponent.battlefield.minions)
